@@ -11,6 +11,8 @@ const QuestionList = () => {
         <h2 className='text-3xl text-center p-3 bg-[#53900F] rounded-t-3xl font-SchoolBell font-bold'>What is the meaning of life?</h2>
         <p>Character ID: {id}</p>
       </div>
+      {/* <button>Quit</button>
+      <button>Next</button> */}
     </div>
   );
 };

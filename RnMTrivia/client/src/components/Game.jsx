@@ -81,7 +81,10 @@ const Game = () => {
         </div>
       ))}
     </div>
-    <button className='flex w-full h-[75px] mb-10 p-15 justify-center text-[#66FCf1] content-center bg-[#0B0C10]' onClick={handleReset}>Reset Game</button>
+    <div className='flex w-full h-[75px] mb-10 p-15 justify-center text-[#66FCf1] content-center bg-[#0B0C10]'>
+    <button className='flex justify-center items-center mb-10 rounded-3xl p-5 bg-[#D6CE15] text-[#1F2605] ' onClick={handleReset}>Reset Game</button>
+
+    </div>
     </>
   );
 };
