@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Footer, Game, QuestionList} from './components'
+import { Navbar, Footer, Game, QuestionList } from './components'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -8,8 +8,8 @@ const App = () => {
       <Navbar />
       <BrowserRouter>
         <Routes>
-        <Route exact path="/" element={<Game />} default/>
-        <Route path="/character/:id" element={<QuestionList />} />
+          <Route exact path="/" element={<Game />} default />
+          <Route path="/character/:id" element={<QuestionList />} />
         </Routes>
       </BrowserRouter>
       <Footer />

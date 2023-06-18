@@ -66,12 +66,13 @@ const Game = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-wrap p-5 content-center justify-center bg-[#0B0C10]">
+    <>
+    <div className="w-full h-cover flex flex-wrap p-5 bg-cover content-center justify-center bg-[#0B0C10]">
       {characters.map((character) => (
         <div className="flex flex-col justify-center text-center mb-20 w-600" key={character.id}>
            <Link to={`/character/${character.id}`}>
           <img
-            className="h-auto w-[200px] m-7 rounded-[50%]"
+            className="h-auto w-[200px] m-7 rounded-[50%] transform bg-blue-400 hover:shadow-xl-[#D6CE15] hover:bg-[#D6CE15] transition duration-500 hover:scale-125"
             src={character.image}
             alt={character.name}
           />
@@ -79,8 +80,9 @@ const Game = () => {
           </Link>
         </div>
       ))}
-      <button onClick={handleReset}>Reset Game</button>
     </div>
+    <button className='flex w-full h-[75px] mb-10 p-15 justify-center text-[#66FCf1] content-center bg-[#0B0C10]' onClick={handleReset}>Reset Game</button>
+    </>
   );
 };
 
