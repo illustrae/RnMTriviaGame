@@ -1,26 +1,34 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const Game = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState(() => {
+    const storedCharacters = sessionStorage.getItem('characters');
+    return storedCharacters ? JSON.parse(storedCharacters) : [];
+  });
 
   useEffect(() => {
-    const fetchRandomCharacters = async () => {
-      try {
-        const totalPages = await getTotalPages();
-        const randomPage = getRandomPage(totalPages);
-        const response = await axios.get(
-          `https://rickandmortyapi.com/api/character?page=${randomPage}`
-        );
-        const randomCharacters = getRandomCharacters(response.data.results, 8);
-        setCharacters(randomCharacters);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    if (characters.length === 0) {
+      fetchRandomCharacters();
+    } else {
+      sessionStorage.setItem('characters', JSON.stringify(characters));
+    }
+  }, [characters]);
 
-    fetchRandomCharacters();
-  }, []);
+  const fetchRandomCharacters = async () => {
+    try {
+      const totalPages = await getTotalPages();
+      const randomPage = getRandomPage(totalPages);
+      const response = await axios.get(
+        `https://rickandmortyapi.com/api/character?page=${randomPage}`
+      );
+      const randomCharacters = getRandomCharacters(response.data.results, 8);
+      setCharacters(randomCharacters);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getTotalPages = async () => {
     try {
@@ -52,21 +60,28 @@ const Game = () => {
     return randomized;
   };
 
+  const handleReset = () => {
+    sessionStorage.removeItem('characters');
+    setCharacters([]);
+  };
+
   return (
-    
     <div className="w-full h-full flex flex-wrap p-5 content-center justify-center bg-[#0B0C10]">
-      
       {characters.map((character) => (
-        <div className='flex flex-col justify-center text-center mb-20 w-600'key={character.id}>
-          <img className='h-auto w-[200px] m-7 rounded-[50%] ' src={character.image} alt={character.name} />
-          <h2 className='text-[#66FCf1]'> {character.name} </h2>
+        <div className="flex flex-col justify-center text-center mb-20 w-600" key={character.id}>
+           <Link to={`/character/${character.id}`}>
+          <img
+            className="h-auto w-[200px] m-7 rounded-[50%]"
+            src={character.image}
+            alt={character.name}
+          />
+          <h2 className="text-[#66FCf1]"> {character.name} </h2>
+          </Link>
         </div>
       ))}
-      
+      <button onClick={handleReset}>Reset Game</button>
     </div>
- 
   );
 };
 
 export default Game;
-
