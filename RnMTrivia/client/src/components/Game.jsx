@@ -72,7 +72,7 @@ const Game = () => {
         <div className="flex flex-col justify-center text-center mb-20 w-600" key={character.id}>
            <Link to={`/character/${character.id}`}>
           <img
-            className="h-auto w-[200px] m-7 rounded-[50%] transform bg-blue-400 hover:shadow-xl-[#D6CE15] hover:bg-[#D6CE15] transition duration-500 hover:scale-125"
+            className="h-auto w-[200px] m-7 rounded-[50%] transform bg-blue-400 hover:bg-[#D6CE15] transition duration-500 hover:scale-125"
             src={character.image}
             alt={character.name}
           />

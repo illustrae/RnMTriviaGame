@@ -6,7 +6,14 @@ export default {
   ],
   
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'tvStatic': "url('/src/assets/tvstatic.gif')",
+      },
+      fontFamily: {
+        SchoolBell: ["Schoolbell", 'serif'],
+      },
+    },
   },
   plugins: [],
 }
