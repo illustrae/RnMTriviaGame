@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import  Navbar  from './Navbar'
 
 const Game = () => {
   const [characters, setCharacters] = useState(() => {
@@ -14,6 +15,7 @@ const Game = () => {
     } else {
       sessionStorage.setItem('characters', JSON.stringify(characters));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [characters]);
 
   const fetchRandomCharacters = async () => {
@@ -67,6 +69,7 @@ const Game = () => {
 
   return (
     <>
+    <Navbar />
     <div className="w-full h-cover flex flex-wrap p-5 bg-cover content-center justify-center bg-[#0B0C10]">
       {characters.map((character) => (
         <div className="flex flex-col justify-center text-center mb-20 w-600" key={character.id}>

@@ -1,19 +1,43 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'High Scores', href: '#', current: false },
-    { name: 'Profiles', href: '#', current: false },
-]
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
-export default function Example() {
+
+const Navbar = () => {
+
+    const navigate = useNavigate();
+
+    const logOut = () => {
+
+        axios.post('http://localhost:8000/api/logout', {}, { withCredentials: true })
+            // eslint-disable-next-line no-unused-vars
+            .then((res) => {
+                navigate('/')
+                sessionStorage.removeItem('characters')
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    };
+
+    const navigation = [
+        { name: 'Dashboard', href: '#', current: true },
+        { name: 'High Scores', href: '#', current: false },
+        { name: 'Profiles', href: '#', current: false },
+        { name: 'Logout', current: true, onClick: logOut},
+
+    ]
+
+
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ')
+    }
+
     return (
+
         <Disclosure as="nav" className="bg-[#66FCF1]">
             {({ open }) => (
                 <>
@@ -45,7 +69,7 @@ export default function Example() {
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
-                                        {navigation.map((item) => (
+                                        {navigation.slice(0, -1).map((item) => ( // Exclude the last item (Logout)
                                             <a
                                                 key={item.name}
                                                 href={item.href}
@@ -58,6 +82,20 @@ export default function Example() {
                                                 {item.name}
                                             </a>
                                         ))}
+                                        <div className="absolute top-5 right-20 ml-auto"> 
+                                            <a
+                                                key={navigation[navigation.length - 1].name} 
+                                                className={classNames(
+                                                    navigation[navigation.length - 1].current ? 'bg-[#D6CE15] text-[#1F2833]' : 'text-[#1F2833] hover:bg-[#53900F] hover:text-white',
+                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                )}
+                                                aria-current={navigation[navigation.length - 1].current ? 'page' : undefined}
+                                                onClick={navigation[navigation.length - 1].onClick} 
+                                                >
+                                            
+                                                {navigation[navigation.length - 1].name}
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -85,5 +123,7 @@ export default function Example() {
                 </>
             )}
         </Disclosure>
-    )
-}
+    );
+};
+
+export default Navbar;
