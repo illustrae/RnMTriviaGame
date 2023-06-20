@@ -69,7 +69,8 @@ const Game = () => {
 
   return (
     <>
-    <Navbar />
+ 
+
     <div className="w-full h-cover flex flex-wrap p-5 bg-cover content-center justify-center bg-[#0B0C10]">
       {characters.map((character) => (
         <div className="flex flex-col justify-center text-center mb-20 w-600" key={character.id}>

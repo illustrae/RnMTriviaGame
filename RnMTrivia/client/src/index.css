@@ -3,3 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.portal{
+    background: url('../src/assets/images/portal.gif') no-repeat center;
+    margin: auto;
+    width:100%;
+    text-align:center;
+    
+
+}
