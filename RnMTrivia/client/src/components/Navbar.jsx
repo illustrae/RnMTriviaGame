@@ -3,6 +3,7 @@ import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import RnMLogo from '../assets/images/RnMLogo.png';
 
 
 
@@ -58,12 +59,12 @@ const Navbar = () => {
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
                                         className="block h-20 w-auto lg:hidden"
-                                        src="./public/RnMLogo.png"
+                                        src={RnMLogo}
                                         alt="Your Company"
                                     />
                                     <img
                                         className="hidden h-12 w-auto lg:block"
-                                        src="./public/RnMLogo.png"
+                                        src={RnMLogo}
                                         alt="Your Company"
                                     />
                                 </div>

@@ -5,8 +5,8 @@ const Footer = () => {
     <>
     
     <footer
-  className="fixed w-full bottom-0 bg-[#53900F] text-center dark-[#1F2605] lg:text-left">
-  <div className="p-4 text-center text-neutral-700 dark:text-neutral-200">
+  className="fixed w-full bottom-0 bg-[#76f925] text-center dark-[#1F2605] lg:text-left">
+  <div className="p-4 text-center text-[#0B0C10] dark:text-[#0B0C10]">
     © 2023 Copyright
    
   </div>
