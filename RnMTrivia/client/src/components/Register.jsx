@@ -3,22 +3,13 @@ import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import portal from '../assets/images/portal.gif'
 
-const Register = () => {
+const Register = ({user, setUser}) => {
 
     const navigate = useNavigate();
-
-    const [user, setUser] = useState({
-        userName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    })
 
     const changeHandler = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
-
-    //! SubmitHandler needs to add
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -55,8 +46,8 @@ const Register = () => {
                     <input type="password" id="floating_filled3" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-[#0B0C10] dark:bg-[#0B0C10] border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#66FCf1] focus:outline-none focus:ring-0 focus:border-[#66FCf1] peer" placeholder=" " onChange={changeHandler} value={user.confirmPassword} name='confirmPassword' />
                     <label htmlFor="floating_filled3" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#66FCf1] peer-focus:dark:text-[#66FCf1]peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Confirm Password:</label>
                 </div>
-                <button> Register </button>
-                <Link className='text-blue' to={'/login'}> Already Have an account? Click here to login </Link>
+                <button className='bg-[#66FCf1] border-yellow-400 border-[2px] hover:bg-yellow-400 rounded-xl p-2 mt-5'> Register </button>
+                <Link to={'/login'}> <p className='text-[14px] hover:text-[#66FCf1] bg-[#0B0C10] p-2 rounded-b-xl bg-opacity-60 font-semibold text-yellow-400 mt-5'>Already Have an account? Click here to login</p></Link>
             </form>
             </div>
             </div>
