@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import portal from '../assets/images/portal.gif'
 
-const Register = ({user, setUser}) => {
+const Register = ({user, setUser, setAuth}) => {
 
     const navigate = useNavigate();
 
@@ -16,6 +16,8 @@ const Register = ({user, setUser}) => {
         axios.post('http://localhost:8000/api/register', user, {withCredentials:true})
             .then((res) => {
                 console.log(res);
+                localStorage.setItem("userToken", res.data.userToken)
+                setAuth({userToken: true}),
                 navigate('/game')
             })
             .catch((err) => { 
@@ -23,6 +25,18 @@ const Register = ({user, setUser}) => {
             });
 
     }
+    useEffect(() => {
+    
+        let userToken = localStorage.getItem('userToken')
+        console.log(userToken)
+        if(userToken !== null){
+          // console.log("heyyy", userToken)
+          setAuth({"userToken": true})
+          console.log(location.state)
+          navigate(location.state?.prev?location.state.prev:'/game')
+        }
+    
+      }, []);
 
     return (
         <div className='bg-[#0B0C10]'>
