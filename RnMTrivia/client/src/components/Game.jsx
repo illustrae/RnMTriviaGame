@@ -25,7 +25,7 @@ const Game = () => {
       const response = await axios.get(
         `https://rickandmortyapi.com/api/character?page=${randomPage}`
       );
-      const randomCharacters = getRandomCharacters(response.data.results, 8);
+      const randomCharacters = getRandomCharacters(response.data.results, 10);
       setCharacters(randomCharacters);
     } catch (error) {
       console.log(error);
@@ -70,24 +70,27 @@ const Game = () => {
   return (
     <>
  
-
-    <div className="w-full h-cover flex flex-wrap p-5 bg-cover content-center justify-center bg-[#0B0C10]">
-      {characters.map((character) => (
-        <div className="flex flex-col justify-center text-center mb-20 w-600" key={character.id}>
-           <Link to={`/character/${character.id}`}>
-          <img
-            className="h-auto w-[200px] m-7 rounded-[50%] transform bg-blue-400 hover:bg-[#D6CE15] transition duration-500 hover:scale-125"
-            src={character.image}
-            alt={character.name}
-          />
-          <h2 className="text-[#66FCf1]"> {character.name} </h2>
-          </Link>
-        </div>
-      ))}
-    </div>
-    <div className='flex w-full h-[75px] mb-10 p-15 justify-center text-[#66FCf1] content-center bg-[#0B0C10]'>
-    <button className='flex justify-center items-center mb-10 rounded-3xl p-5 bg-[#D6CE15] text-[#1F2605] ' onClick={handleReset}>Reset Game</button>
-
+    <div className='w-full flex h-full p-20 overflow-auto flex-wrap justify-center bg-cover bg-[#0B0C10]'>
+    <div className=' self-center p-15 justify-center text-[#66FCf1] content-center bg-[#0B0C10]'>
+      <button className=' justify-center items-center rounded-3xl p-5 mb-10 bg-[#D6CE15] text-[#1F2605] ' onClick={handleReset}>New Characters</button>
+      </div>      
+      <div className="flex w-[75%] flex-wrap  bg-cover content-center justify-center bg-[#0B0C10]">
+        {characters.map((character) => (
+          <div className="flex flex-col justify-center text-center m-10 w-600" key={character.id}>
+            <Link to={`/character/${character.id}`}>
+            <img
+              className="h-auto w-[200px] rounded-[50%] mb-5 transform bg-blue-400 hover:bg-[#D6CE15] transition duration-500 hover:scale-125"
+              src={character.image}
+              alt={character.name}
+            />
+            <h2 className="text-[#66FCf1] content-center"> {character.name} </h2>
+            </Link>
+          </div>
+        ))}
+      </div>
+      <div className='self-center p-15 mb-10 justify-center text-[#66FCf1] content-center bg-[#0B0C10]'>
+      <button className=' justify-center items-center  rounded-3xl p-5 bg-[#D6CE15] text-[#1F2605] ' onClick={handleReset}>Play Trivia</button>
+      </div>
     </div>
     </>
   );

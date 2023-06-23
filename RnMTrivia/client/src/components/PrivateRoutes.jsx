@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 
 const PrivateRoutes = ({ auth }) => {
     const location = useLocation();
-    console.log('heyyy', auth)
 
   return (
   

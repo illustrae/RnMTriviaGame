@@ -6,8 +6,45 @@
 .portal{
     background: url('../src/assets/images/portal.gif') no-repeat center;
     margin: auto;
-    width:100%;
+    width:auto;
     text-align:center;
     
 
 }
+
+.characterInfo {
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto;
+    margin-top:5px;
+    letter-spacing: .16em; 
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  .blink-glow {
+    animation: blink-glow-animation 2s linear 5s infinite;
+    color: red;
+    text-shadow: 0 0 10px red;
+    opacity:0;
+  }
+
+  @keyframes blink-glow-animation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      text-shadow: 0 0 20px red;
+      opacity: 1;
+    }
+  }
