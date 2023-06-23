@@ -45,7 +45,7 @@ module.exports = {
                     //* generate our user token and log user in.
                     const userToken = jwt.sign({ _id: user._id, email: user.email }, secret, { expiresIn: '2h' })
                     //*log user in and set cookie
-                    res.status(201).cookie('userToken', userToken, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }).json(user);
+                    res.status(201).cookie('userToken', userToken, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }).json({user, userToken});
                 } else {
                     //* this is if the email does exist but passwords do not match
                     res.status(400).json({message: 'Invalid email/password'})

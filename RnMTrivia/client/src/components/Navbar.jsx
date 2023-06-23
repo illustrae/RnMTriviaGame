@@ -1,44 +1,46 @@
-
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import RnMLogo from '../assets/images/RnMLogo.png';
 
-
-
-const Navbar = () => {
-
+const Navbar = ({ auth }) => {
     const navigate = useNavigate();
 
     const logOut = () => {
-
-        axios.post('http://localhost:8000/api/logout', {}, { withCredentials: true })
-            // eslint-disable-next-line no-unused-vars
+        axios
+            .post('http://localhost:8000/api/logout', {}, { withCredentials: true })
             .then((res) => {
-                navigate('/')
-                sessionStorage.removeItem('characters')
+                sessionStorage.removeItem('characters');
+                localStorage.removeItem('userToken');
+                auth.userToken = false; // Update userToken value
+                navigate('/');
             })
             .catch((err) => {
-                console.log(err)
+                console.log(err);
             });
     };
 
-    const navigation = [
+    let navigation = [
         { name: 'Dashboard', href: '#', current: true },
         { name: 'High Scores', href: '#', current: false },
         { name: 'Profiles', href: '#', current: false },
-        { name: 'Logout', current: true, onClick: logOut},
+        { name: 'Logout', current: true, onClick: logOut },
+    ];
 
-    ]
-
+    if (!auth.userToken) {
+        navigation = [
+            { name: 'High Scores', href: '#', current: false },
+            { name: 'Profiles', href: '#', current: false },
+            { name: 'Login', href: '/login', current: true },
+        ];
+    }
 
     function classNames(...classes) {
-        return classes.filter(Boolean).join(' ')
+        return classes.filter(Boolean).join(' ');
     }
 
     return (
-
         <Disclosure as="nav" className="bg-[#66FCF1]">
             {({ open }) => (
                 <>
@@ -68,35 +70,25 @@ const Navbar = () => {
                                         alt="Your Company"
                                     />
                                 </div>
-                                <div className="hidden sm:ml-6 sm:block">
+                                <div className="hidden sm:ml-auto sm:block"> 
                                     <div className="flex space-x-4">
-                                        {navigation.slice(0, -1).map((item) => ( // Exclude the last item (Logout)
+                                        {navigation.map((item) => (
                                             <a
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
                                                     item.current ? 'bg-[#D6CE15] text-white' : 'text-[#1F2833] hover:bg-[#53900F] hover:text-white',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                    'rounded-md px-3 py-2 text-sm font-medium', 'cursor-pointer',
+                                                    {
+                                                        'cursor-pointer': !auth.userToken, 
+                                                      }
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
+                                                onClick={item.onClick}
                                             >
                                                 {item.name}
                                             </a>
                                         ))}
-                                        <div className="absolute top-5 right-20 ml-auto"> 
-                                            <a
-                                                key={navigation[navigation.length - 1].name} 
-                                                className={classNames(
-                                                    navigation[navigation.length - 1].current ? 'bg-[#D6CE15] text-[#1F2833]' : 'text-[#1F2833] hover:bg-[#53900F] hover:text-white',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
-                                                )}
-                                                aria-current={navigation[navigation.length - 1].current ? 'page' : undefined}
-                                                onClick={navigation[navigation.length - 1].onClick} 
-                                                >
-                                            
-                                                {navigation[navigation.length - 1].name}
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -112,9 +104,10 @@ const Navbar = () => {
                                     href={item.href}
                                     className={classNames(
                                         item.current ? 'bg-[#D6CE15] text-[#1f2605' : 'text-[#1f2605] hover:bg-[#53900F] hover:text-white',
-                                        'block rounded-md px-3 py-2 text-base font-medium'
+                                        'block rounded-md px-3 py-2 text-base font-medium',
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
+                                    onClick={item.onClick}
                                 >
                                     {item.name}
                                 </Disclosure.Button>
