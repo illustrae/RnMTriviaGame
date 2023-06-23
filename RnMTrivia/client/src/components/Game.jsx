@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import  Navbar  from './Navbar'
 
 const Game = () => {
   const [characters, setCharacters] = useState(() => {
@@ -66,15 +65,15 @@ const Game = () => {
     sessionStorage.removeItem('characters');
     setCharacters([]);
   };
-
+  
   return (
     <>
  
-    <div className='w-full flex h-full p-20 overflow-auto flex-wrap justify-center bg-cover bg-[#0B0C10]'>
-    <div className=' self-center p-15 justify-center text-[#66FCf1] content-center bg-[#0B0C10]'>
+    <div className='w-full flex h-full p-20 overflow-auto flex-wrap justify-center bg-cover bg-bgStars'>
+    <div className=' self-center p-15 justify-center text-[#66FCf1] content-center bg-transparent'>
       <button className=' justify-center items-center rounded-3xl p-5 mb-10 bg-[#D6CE15] text-[#1F2605] ' onClick={handleReset}>New Characters</button>
       </div>      
-      <div className="flex w-[75%] flex-wrap  bg-cover content-center justify-center bg-[#0B0C10]">
+      <div className="flex w-[75%] flex-wrap  bg-cover content-center justify-center bg-transparent">
         {characters.map((character) => (
           <div className="flex flex-col justify-center text-center m-10 w-600" key={character.id}>
             <Link to={`/character/${character.id}`}>
@@ -89,7 +88,7 @@ const Game = () => {
         ))}
       </div>
       <div className='self-center p-15 mb-10 justify-center text-[#66FCf1] content-center bg-[#0B0C10]'>
-      <button className=' justify-center items-center  rounded-3xl p-5 bg-[#D6CE15] text-[#1F2605] ' onClick={handleReset}>Play Trivia</button>
+      <Link to="/trivia"><button className='justify-center items-center  rounded-3xl p-5 bg-[#D6CE15] text-[#1F2605]'>Play Trivia</button></Link>
       </div>
     </div>
     </>

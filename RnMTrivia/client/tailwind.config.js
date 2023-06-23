@@ -9,6 +9,7 @@ export default {
     extend: {
       backgroundImage: {
         'tvStatic': "url('/src/assets/tvstatic.gif')",
+        'bgStars': "url('/src/assets/backgroundstars.gif')"
       },
       fontFamily: {
         SchoolBell: ["Schoolbell", 'serif'],

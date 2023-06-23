@@ -4,6 +4,8 @@ import Game from './Game'
 import QuestionList from './CharInfo';
 import Register from './Register';
 import Login from './Login';
+import Trivia from './Trivia';
+
 
 export {
     Navbar,
@@ -12,5 +14,7 @@ export {
     QuestionList,
     Register,
     Login,
+    Trivia,
+
 
 }
