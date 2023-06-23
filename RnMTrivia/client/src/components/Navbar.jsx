@@ -22,7 +22,7 @@ const Navbar = ({ auth }) => {
     };
 
     let navigation = [
-        { name: 'Dashboard', href: '#', current: true },
+        { name: 'Dashboard', href: '/game', current: true },
         { name: 'High Scores', href: '#', current: false },
         { name: 'Profiles', href: '#', current: false },
         { name: 'Logout', current: true, onClick: logOut },

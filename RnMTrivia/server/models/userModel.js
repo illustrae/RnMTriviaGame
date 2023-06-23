@@ -16,6 +16,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required:[true, 'Email is required'],
         minLength:[8, 'Password must be 8 characters']
+    },
+    score:{
+        type: Number,
+        
     }
 }, {timestamps:true})
 
