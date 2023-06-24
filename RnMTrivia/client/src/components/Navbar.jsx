@@ -4,34 +4,42 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import RnMLogo from '../assets/images/RnMLogo.png';
 
-const Navbar = ({ auth }) => {
+const Navbar = ({ auth, user, setUser }) => {
     const navigate = useNavigate();
+
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
     const logOut = () => {
         axios
             .post('http://localhost:8000/api/logout', {}, { withCredentials: true })
             .then((res) => {
-                sessionStorage.removeItem('characters');
-                localStorage.removeItem('userToken');
+                localStorage.clear()
                 auth.userToken = false; // Update userToken value
-                navigate('/');
+                setUser({
+                    userName: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                  })
+                navigate('/login');
             })
             .catch((err) => {
                 console.log(err);
             });
     };
 
+    const welcomeMessage = auth.userToken? `Buckle up, ${userData.userName}`: " ";
+
     let navigation = [
-        { name: 'Dashboard', href: '/game', current: true },
-        { name: 'High Scores', href: '#', current: false },
-        { name: 'Profiles', href: '#', current: false },
+        
+        { name: welcomeMessage, current:false},
+        { name: 'Dashboard', href: '/game', current: false },
+        { name: 'High Scores', href: '/score', current: false },
         { name: 'Logout', current: true, onClick: logOut },
     ];
 
     if (!auth.userToken) {
         navigation = [
-            { name: 'High Scores', href: '#', current: false },
-            { name: 'Profiles', href: '#', current: false },
             { name: 'Login', href: '/login', current: true },
         ];
     }

@@ -24,7 +24,7 @@ const Game = () => {
       const response = await axios.get(
         `https://rickandmortyapi.com/api/character?page=${randomPage}`
       );
-      const randomCharacters = getRandomCharacters(response.data.results, 10);
+      const randomCharacters = getRandomCharacters(response.data.results, 9);
       setCharacters(randomCharacters);
     } catch (error) {
       console.log(error);

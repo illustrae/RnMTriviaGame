@@ -39,6 +39,7 @@ const Trivia = () => {
             setShowScore(true);
         }
     };
+    
 
     return (
 <div className='h-screen bg-bgStars bg-cover flex flex-col sm:p-20 sm:flex-row md:flex-row ss:flex-row sm:h-screen lg:flex-row items-center justify-around overflow-hidden-auto'>

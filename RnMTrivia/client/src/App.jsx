@@ -1,4 +1,4 @@
-import { Footer, Game, QuestionList, Register, Login, Navbar, Trivia } from './components'
+import { Footer, Game, QuestionList, Register, Login, Navbar, Trivia, HighScores } from './components'
 import { Route, Routes} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import PrivateRoutes from './components/PrivateRoutes';
@@ -16,6 +16,7 @@ const App = () => {
     email: '',
     password: '',
     confirmPassword: '',
+    score: ''
   })
 
   
@@ -30,9 +31,10 @@ const App = () => {
             <Route element={<Game />} path='/game' />
             <Route element={<QuestionList />} path='/character/:id' />
             <Route element={<Trivia />} path='/trivia' />
+            <Route path="/score" element={<HighScores />} />
           </Route>
           <Route path="/" element={<Register user={user} setUser={setUser} setAuth={setAuth}/>} default />
-          <Route path="/login" element={<Login userLogin={userLogin} setUserLogin={setUserLogin} setAuth={setAuth} />} />
+          <Route path="/login" element={<Login userLogin={userLogin} setUser={setUser} setUserLogin={setUserLogin} setAuth={setAuth} />} />
           <Route path="/game" element={<Game />} />
           <Route path="/character/:id" element={<QuestionList />} />
         </Routes>
