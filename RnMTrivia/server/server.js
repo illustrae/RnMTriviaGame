@@ -7,7 +7,7 @@ require("./config/mongoose.config");
 require('dotenv').config();
 
 app.use(express.json(), express.urlencoded({extended: true}));
-app.use(cors({credentials:true, origin:'http://localhost:3000'}))
+app.use(cors({credentials:true, origin:'http://127.0.0.1:3000'}))
 app.use(cookieParser());
 
 

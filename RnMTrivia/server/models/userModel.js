@@ -5,7 +5,7 @@ const { isEmail } = require('validator');
 const UserSchema = new mongoose.Schema({
     userName: {
         type:String,
-        required:[true, 'First name is required']
+        required:[true, 'UserName is required']
     },
     email: {
         type: String,
@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        required:[true, 'Email is required'],
+        required:[true, 'Password is required'],
         minLength:[8, 'Password must be 8 characters']
     },
     score:{
