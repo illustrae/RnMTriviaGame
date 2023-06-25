@@ -17,6 +17,9 @@ const Register = ({user, setUser, setAuth}) => {
             .then((res) => {
                 console.log(res);
                 localStorage.setItem("userToken", res.data.userToken)
+                localStorage.setItem("userData", JSON.stringify(res.data));
+                const userData = res.data
+                setUser(userData)
                 setAuth({userToken: true}),
                 navigate('/game')
             })

@@ -1,10 +1,7 @@
-import React from 'react'
 
-export const Question = () => {
+    // const randomEpisode = Math.floor(Math.random() * 51) + 1;
 
-    const randomEpisode = Math.floor(Math.random() * 51) + 1;
-
-    const questions = [
+const questions = [
         {
             questionText: 'In which episode did Rick turn himself into a pickle?',
             answerOptions: [
@@ -13,8 +10,7 @@ export const Question = () => {
                 { answerText: 'Mortynight Run', isCorrect: false },
                 { answerText: 'Total Rickall', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Morty\'s crush from "Rick Potion #9"?',
             answerOptions: [
@@ -23,8 +19,7 @@ export const Question = () => {
                 { answerText: 'Summer', isCorrect: false },
                 { answerText: 'Annie', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Rick\'s spaceship?',
             answerOptions: [
@@ -33,8 +28,7 @@ export const Question = () => {
                 { answerText: 'Portal Gun', isCorrect: false },
                 { answerText: 'The Ship', isCorrect: true },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'Who is Morty\'s math teacher?',
             answerOptions: [
@@ -43,8 +37,7 @@ export const Question = () => {
                 { answerText: 'Principal Vagina', isCorrect: false },
                 { answerText: 'Coach Feratu', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Rick\'s ex-girlfriend?',
             answerOptions: [
@@ -53,8 +46,7 @@ export const Question = () => {
                 { answerText: 'Gwendolyn', isCorrect: false },
                 { answerText: 'Jessica', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'Which dimension do Rick and Morty come from?',
             answerOptions: [
@@ -63,8 +55,7 @@ export const Question = () => {
                 { answerText: 'Dimension D-99', isCorrect: false },
                 { answerText: 'Dimension Zeta-6', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the catchphrase of Mr. Meeseeks?',
             answerOptions: [
@@ -73,8 +64,7 @@ export const Question = () => {
                 { answerText: 'I\'m Mr. Meeseeks, look at me!', isCorrect: false },
                 { answerText: 'Get Schwifty!', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of the arcade created by Rick?',
             answerOptions: [
@@ -83,8 +73,7 @@ export const Question = () => {
                 { answerText: 'Froopyland', isCorrect: false },
                 { answerText: 'Anatomy Park', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'Who is the president of the Citadel of Ricks?',
             answerOptions: [
@@ -93,8 +82,7 @@ export const Question = () => {
                 { answerText: 'Cop Rick', isCorrect: false },
                 { answerText: 'Robot Rick', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Morty\'s alternate self in the Cronenberg world?',
             answerOptions: [
@@ -103,8 +91,7 @@ export const Question = () => {
                 { answerText: 'Doofus Morty', isCorrect: false },
                 { answerText: 'Morty Smith Jr.', isCorrect: true },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Rick\'s daughter?',
             answerOptions: [
@@ -113,8 +100,7 @@ export const Question = () => {
                 { answerText: 'Jessica', isCorrect: false },
                 { answerText: 'Tricia', isCorrect: false },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Rick\'s arch-nemesis?',
             answerOptions: [
@@ -123,8 +109,7 @@ export const Question = () => {
                 { answerText: 'Evil Rick', isCorrect: false },
                 { answerText: 'The Galactic Federation', isCorrect: true },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Rick\'s catchphrase?',
             answerOptions: [
@@ -133,7 +118,7 @@ export const Question = () => {
                 { answerText: 'Existence is pain!', isCorrect: false },
                 { answerText: 'Pickle Riiick!', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
         },
         {
             questionText: 'Who is Morty\'s sister?',
@@ -143,7 +128,7 @@ export const Question = () => {
                 { answerText: 'Jessica', isCorrect: false },
                 { answerText: 'Tammy', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
         },
         {
             questionText: 'Which species is Morty\'s best friend, Birdperson?',
@@ -153,7 +138,7 @@ export const Question = () => {
                 { answerText: 'Insectoid', isCorrect: false },
                 { answerText: 'Canine', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
         },
         {
             questionText: 'What is the name of Rick\'s son-in-law?',
@@ -163,7 +148,7 @@ export const Question = () => {
                 { answerText: 'Scary Terry', isCorrect: false },
                 { answerText: 'Gazorpazorp', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
         },
         {
             questionText: 'What is the name of Morty\'s alien sex robot?',
@@ -173,7 +158,7 @@ export const Question = () => {
                 { answerText: 'Tricia', isCorrect: false },
                 { answerText: 'Gazorpazorp', isCorrect: true },
             ],
-            episode: `${randomEpisode}`,
+          
         },
         {
             questionText: 'What is the name of the dimension where Beth is a mytholog?',
@@ -183,7 +168,7 @@ export const Question = () => {
                 { answerText: 'Dimension 35-C', isCorrect: false },
                 { answerText: 'Froopyland', isCorrect: true },
             ],
-            episode: `${randomEpisode}`,
+          
         },
         {
             questionText: 'What is the name of the alien who runs the intergalactic pawn shop?',
@@ -193,8 +178,7 @@ export const Question = () => {
                 { answerText: 'Abradolf Lincler', isCorrect: false },
                 { answerText: 'Glaxo Slimslom', isCorrect: true },
             ],
-            episode: `${randomEpisode}`
-        },
+                  },
         {
             questionText: 'What is the name of Morty\'s dog?',
             answerOptions: [
@@ -203,7 +187,7 @@ export const Question = () => {
               { answerText: 'Scary Terry', isCorrect: false },
               { answerText: 'Abradolf Lincler', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'Who is Rick\'s closest friend and drinking buddy?',
@@ -213,7 +197,7 @@ export const Question = () => {
               { answerText: 'Mr. Meeseeks', isCorrect: false },
               { answerText: 'Mr. Poopybutthole', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of Rick\'s ex-partner in crime?',
@@ -223,7 +207,7 @@ export const Question = () => {
               { answerText: 'Phoenixperson', isCorrect: false },
               { answerText: 'Revolio Clockberg Jr.', isCorrect: true },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of the planet ruled by giant telepathic spiders?',
@@ -233,7 +217,7 @@ export const Question = () => {
               { answerText: 'Purge Planet', isCorrect: false },
               { answerText: 'Nuptia 4', isCorrect: true },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of the mysterious, eye-patch-wearing character who has a vendetta against Rick?',
@@ -243,7 +227,7 @@ export const Question = () => {
               { answerText: 'Tammy', isCorrect: false },
               { answerText: 'Noob-Noob', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of Morty\'s math teacher in the "Vindicators 3: The Return of Worldender" episode?',
@@ -253,7 +237,7 @@ export const Question = () => {
               { answerText: 'Principal Vagina', isCorrect: false },
               { answerText: 'Logic', isCorrect: true },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of Rick\'s favorite interdimensional cable show?',
@@ -263,7 +247,7 @@ export const Question = () => {
               { answerText: 'The Real Animated Adventures of Doc and Mharti', isCorrect: false },
               { answerText: 'Plumbus', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of the device that allows Rick to travel between dimensions?',
@@ -273,7 +257,7 @@ export const Question = () => {
               { answerText: 'Dimensional Transporter', isCorrect: false },
               { answerText: 'Portal Gun', isCorrect: true },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'What is the name of Rick\'s garage band?',
@@ -283,23 +267,19 @@ export const Question = () => {
               { answerText: 'The Get Schwifty Singers', isCorrect: false },
               { answerText: 'The Birdperson Revival', isCorrect: false },
             ],
-            episode: `${randomEpisode}`,
+          
           },
           {
             questionText: 'Which member of the Smith family is often neglected or forgotten?',
             answerOptions: [
               { answerText: 'Jerry', isCorrect: false },
               { answerText: 'Beth', isCorrect: false },
-              { answerText: 'Summer', isCorrect: false },
               { answerText: 'Morty', isCorrect: true },
+              { answerText: 'Summer', isCorrect: false },
+              
             ],
-            episode: `${randomEpisode}`,
+          
           },
     
     ];
-        
-      
-  return(
-    <div> Question</div >
-  )
-}
+  export default questions;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 
 
-const Login = ({ userLogin, setUserLogin, setAuth, userToken }) => {
+const Login = ({ userLogin, setUserLogin, setAuth, setUser }) => {
     
     const navigate = useNavigate();
     const location = useLocation();
@@ -19,8 +19,17 @@ const Login = ({ userLogin, setUserLogin, setAuth, userToken }) => {
             .then((res) => {
                 console.log(res);
                 localStorage.setItem("userToken", res.data.userToken)
+                localStorage.setItem("userData", JSON.stringify(res.data.user))
+                const userData = res.data.user
+                setUser(userData)
                 setAuth({userToken: true}),
                 navigate('/game')
+                setUserLogin({
+                    userName: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                  })
             })
             .catch((err) => {
                 console.log(err);
