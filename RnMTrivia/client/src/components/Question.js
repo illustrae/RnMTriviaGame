@@ -59,19 +59,19 @@ const questions = [
         {
             questionText: 'What is the catchphrase of Mr. Meeseeks?',
             answerOptions: [
-                { answerText: 'Existence is pain!', isCorrect: true },
+                { answerText: 'Existence is pain!', isCorrect: false },
                 { answerText: 'Wubba lubba dub dub!', isCorrect: false },
-                { answerText: 'I\'m Mr. Meeseeks, look at me!', isCorrect: false },
+                { answerText: "I'm Mr. Meeseeks, look at me!", isCorrect: true },
                 { answerText: 'Get Schwifty!', isCorrect: false },
             ],
                   },
         {
             questionText: 'What is the name of the arcade created by Rick?',
             answerOptions: [
-                { answerText: 'Blips and Chitz', isCorrect: true },
+                { answerText: 'Blips and Chitz', isCorrect: false },
                 { answerText: 'Royland', isCorrect: false },
                 { answerText: 'Froopyland', isCorrect: false },
-                { answerText: 'Anatomy Park', isCorrect: false },
+                { answerText: 'Anatomy Park', isCorrect: true },
             ],
                   },
         {
@@ -86,10 +86,10 @@ const questions = [
         {
             questionText: 'What is the name of Morty\'s alternate self in the Cronenberg world?',
             answerOptions: [
-                { answerText: 'Cronenberg Morty', isCorrect: false },
+                { answerText: 'Cronenberg Morty', isCorrect: true },
                 { answerText: 'Evil Morty', isCorrect: false },
                 { answerText: 'Doofus Morty', isCorrect: false },
-                { answerText: 'Morty Smith Jr.', isCorrect: true },
+                { answerText: 'Morty Smith Jr.', isCorrect: false },
             ],
                   },
         {
@@ -153,10 +153,10 @@ const questions = [
         {
             questionText: 'What is the name of Morty\'s alien sex robot?',
             answerOptions: [
-                { answerText: 'Gwendolyn', isCorrect: false },
+                { answerText: 'Gwendolyn', isCorrect: true },
                 { answerText: 'Unity', isCorrect: false },
                 { answerText: 'Tricia', isCorrect: false },
-                { answerText: 'Gazorpazorp', isCorrect: true },
+                { answerText: 'Gazorpazorp', isCorrect: false },
             ],
           
         },
@@ -171,7 +171,7 @@ const questions = [
           
         },
         {
-            questionText: 'What is the name of the alien who runs the intergalactic pawn shop?',
+            questionText: 'What is the name of the alien who runs the intergalactic couples couseling?',
             answerOptions: [
                 { answerText: 'Zeep Xanflorp', isCorrect: false },
                 { answerText: 'Krombopulos Michael', isCorrect: false },
@@ -180,10 +180,10 @@ const questions = [
             ],
                   },
         {
-            questionText: 'What is the name of Morty\'s dog?',
+            questionText: 'What did Morty\'s dog name itself?',
             answerOptions: [
-              { answerText: 'Snuffles', isCorrect: true },
-              { answerText: 'Snowball', isCorrect: false },
+              { answerText: 'Snuffles', isCorrect: false },
+              { answerText: 'Snowball', isCorrect: true },
               { answerText: 'Scary Terry', isCorrect: false },
               { answerText: 'Abradolf Lincler', isCorrect: false },
             ],
@@ -202,10 +202,10 @@ const questions = [
           {
             questionText: 'What is the name of Rick\'s ex-partner in crime?',
             answerOptions: [
-              { answerText: 'Birdperson', isCorrect: false },
+              { answerText: 'Birdperson', isCorrect: true },
               { answerText: 'Squanchy', isCorrect: false },
               { answerText: 'Phoenixperson', isCorrect: false },
-              { answerText: 'Revolio Clockberg Jr.', isCorrect: true },
+              { answerText: 'Revolio Clockberg Jr.', isCorrect: false },
             ],
           
           },
@@ -215,7 +215,7 @@ const questions = [
               { answerText: 'Gazorpazorp', isCorrect: false },
               { answerText: 'Froopyland', isCorrect: false },
               { answerText: 'Purge Planet', isCorrect: false },
-              { answerText: 'Nuptia 4', isCorrect: true },
+              { answerText: 'Earth', isCorrect: true },
             ],
           
           },
@@ -252,20 +252,10 @@ const questions = [
           {
             questionText: 'What is the name of the device that allows Rick to travel between dimensions?',
             answerOptions: [
-              { answerText: 'Interdimensional Portal Gun', isCorrect: false },
+              { answerText: 'Goop Gun', isCorrect: false },
               { answerText: 'Universe Hopper', isCorrect: false },
               { answerText: 'Dimensional Transporter', isCorrect: false },
               { answerText: 'Portal Gun', isCorrect: true },
-            ],
-          
-          },
-          {
-            questionText: 'What is the name of Rick\'s garage band?',
-            answerOptions: [
-              { answerText: 'The Flesh Curtains', isCorrect: true },
-              { answerText: 'The Cromulons', isCorrect: false },
-              { answerText: 'The Get Schwifty Singers', isCorrect: false },
-              { answerText: 'The Birdperson Revival', isCorrect: false },
             ],
           
           },

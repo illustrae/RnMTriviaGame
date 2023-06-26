@@ -16,7 +16,7 @@ const Register = ({user, setUser, setAuth}) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/register', user, {withCredentials:true})
             .then((res) => {
-                console.log(res);
+                console.log(res.data);
                 localStorage.setItem("userToken", res.data.userToken)
                 localStorage.setItem("userData", JSON.stringify(res.data));
                 const userData = res.data
@@ -26,7 +26,12 @@ const Register = ({user, setUser, setAuth}) => {
             })
             .catch((err) => { 
                 console.log("HERE: ", err); 
-                setErrors(err.response.data.err.errors)
+                if (err.response.data.err) {
+                    setErrors(err.response.data.err.errors)
+                }
+                else {
+                    setErrors(err.response.data)
+                }
             });
 
     }
@@ -49,23 +54,24 @@ const Register = ({user, setUser, setAuth}) => {
             <div className='portal'>
             <div className='flex flex-col w-screen min-h-screen items-center justify-center'>
             <form onSubmit={submitHandler}>
+                {errors?.message ? <p>{errors.message}</p> : null}
                 <div className=' relative'> 
-                    {errors.userName ? <p>{errors.userName.message}</p> : null}
+                    {errors?.userName ? <p>{errors.userName.message}</p> : null}
                     <input type="text" id="floating_filled" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-[#0B0C10] dark:bg-[#0B0C10] border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#66FCf1] focus:outline-none focus:ring-0 focus:border-[#66FCf1] peer" placeholder=" " onChange={changeHandler} value={user.userName} name='userName' />
                     <label htmlFor="floating_filled" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#66FCf1] peer-focus:dark:text-[#66FCf1]peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"> Username:</label>
                 </div>
                 <div className='relative'> 
-                    {errors.email ? <p>{errors.email.message}</p> : null}
+                    {errors?.email ? <p>{errors.email.message}</p> : null}
                     <input type="email" id="floating_filled1" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-[#0B0C10] dark:bg-[#0B0C10] border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#66FCf1] focus:outline-none focus:ring-0 focus:border-[#66FCf1] peer" placeholder=" " onChange={changeHandler} value={user.email} name='email' />
                     <label htmlFor="floating_filled1" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#66FCf1] peer-focus:dark:text-[#66FCf1]peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Email:</label>
                 </div>
                 <div className='relative'>  
-                    {errors.password ? <p>{errors.password.message}</p> : null}
+                    {errors?.password ? <p>{errors.password.message}</p> : null}
                     <input type="password" id="floating_filled2" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-[#0B0C10] dark:bg-[#0B0C10] border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#66FCf1] focus:outline-none focus:ring-0 focus:border-[#66FCf1] peer" placeholder=" " onChange={changeHandler} value={user.password} name='password' />
                     <label htmlFor="floating_filled2" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#66FCf1] peer-focus:dark:text-[#66FCf1]peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Password:</label>
                 </div>
                 <div className='relative'> 
-                    {errors.confirmPassword ? <p>{errors.confirmPassword.message}</p> : null}
+                    {errors?.confirmPassword ? <p>{errors.confirmPassword.message}</p> : null}
                     <input type="password" id="floating_filled3" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-[#0B0C10] dark:bg-[#0B0C10] border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#66FCf1] focus:outline-none focus:ring-0 focus:border-[#66FCf1] peer" placeholder=" " onChange={changeHandler} value={user.confirmPassword} name='confirmPassword' />
                     <label htmlFor="floating_filled3" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-[#66FCf1] peer-focus:dark:text-[#66FCf1]peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Confirm Password:</label>
                 </div>
