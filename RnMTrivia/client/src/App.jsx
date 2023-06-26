@@ -4,22 +4,16 @@ import { useState, useEffect } from 'react';
 import PrivateRoutes from './components/PrivateRoutes';
 
 const App = () => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const [auth, setAuth] = useState({ 'userToken': false })
+    
+    const [userLogin, setUserLogin] = useState({
+        email: '',
+        password: ''
+    })
+    const [user, setUser] = useState({})
 
-  const [auth, setAuth] = useState({ 'userToken': false })
- 
-  const [userLogin, setUserLogin] = useState({
-    email: '',
-    password: ''
-  })
-  const [user, setUser] = useState({
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    score: ''
-  })
 
-  
 
 
 
@@ -28,10 +22,10 @@ const App = () => {
         <Navbar userLogin={userLogin} user={user} setUser={setUser} setUserLogin={setUserLogin} auth={auth} setAuth={setAuth} />
         <Routes>
           <Route element={<PrivateRoutes auth={auth} setAuth={setAuth} />}>
-            <Route element={<Game />} path='/game' />
+            <Route element={<Game user={user} />} path='/game' />
             <Route element={<QuestionList />} path='/character/:id' />
-            <Route element={<Trivia />} path='/trivia' />
-            <Route path="/score" element={<HighScores />} />
+            <Route element={<Trivia user={user} setUser={setUser} userData={userData} />} path='/trivia' />
+            <Route path="/score" element={<HighScores user={user} />} />
           </Route>
           <Route path="/" element={<Register user={user} setUser={setUser} setAuth={setAuth}/>} default />
           <Route path="/login" element={<Login userLogin={userLogin} setUser={setUser} setUserLogin={setUserLogin} setAuth={setAuth} />} />

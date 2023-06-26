@@ -21,6 +21,7 @@ const Login = ({ userLogin, setUserLogin, setAuth, setUser }) => {
                 console.log(res);
                 localStorage.setItem("userToken", res.data.userToken)
                 localStorage.setItem("userData", JSON.stringify(res.data.user))
+                console.warn("HERE BRO: ", res.data)
                 const userData = res.data.user
                 setUser(userData)
                 setAuth({userToken: true}),

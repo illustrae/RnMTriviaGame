@@ -26,6 +26,7 @@ module.exports = {
             }
         }
         catch (err) {
+            console.log(err)
             res.status(400).json({ err });
 
         }
@@ -62,5 +63,39 @@ module.exports = {
     },
     logout: (req,res) => {
         res.clearCookie('userToken').json({message:'You have Logged out'})
+    },
+
+    getAllUsers: async (req, res) => {
+        try {
+            const allUsers = await User.find()
+            if (allUsers) {
+                res.json({allUsers: allUsers})
+            }
+            else {
+                res.status(400).json({message: 'Have no users'})
+            }
+        }
+        catch {
+            res.status(400).json({ error: err });
+        }
+    },
+
+    editUser: async (req, res) => {
+        
+        try {
+            const user = await User.findOneAndUpdate(
+            {_id: req.params.id},
+            req.body,
+            {new: true, runValidators: true})
+            if (user) {
+                res.json({user: user})
+            }
+            else {
+                res.status(400).json({ message: "Update Failed" })
+            }
+        }
+        catch {
+            res.status(400).json({ error: "Update Failed" })
+        }
     }
 }

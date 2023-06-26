@@ -36,6 +36,7 @@ const Navbar = ({ auth, user, setUser }) => {
         { name: 'Dashboard', href: '/game', current: false },
         { name: 'High Scores', href: '/score', current: false },
         { name: 'Logout', current: true, onClick: logOut },
+        
     ];
 
     if (!auth.userToken) {

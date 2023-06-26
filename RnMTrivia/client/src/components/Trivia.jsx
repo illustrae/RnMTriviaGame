@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Ship } from "../assets";
 import questions from "./Question";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const Trivia = () => {
+const Trivia = ({user, setUser , userData}) => {
     const [currentQuestion, setCurrentQuestion] = useState(() => {
         const randomQuestionIndex = Math.floor(Math.random() * questions.length);
         return questions[randomQuestionIndex];
@@ -12,6 +14,7 @@ const Trivia = () => {
     const [score, setScore] = useState(0);
     const [wrongAnswers, setWrongAnswers] = useState(0);
     const [answeredQuestions, setAnsweredQuestions] = useState(0);
+    const navigate = useNavigate()
 
     const getRandomizedAnswerOptions = () => {
         const answerOptions = currentQuestion.answerOptions;
@@ -39,6 +42,19 @@ const Trivia = () => {
             setShowScore(true);
         }
     };
+
+    const updateScore = () => {
+        console.log(userData._id)
+        userData.score < score?
+        axios.patch(`http://localhost:8000/api/users/${userData._id}`, {score})
+        .then(res => {
+            console.log("HERE: ", res.data)
+            setUser(res.data.user)
+            navigate('/game')
+        })
+        .catch(err => console.log(err)):
+        navigate('/game')
+    }
     
 
     return (
@@ -49,7 +65,10 @@ const Trivia = () => {
       wrongAnswers < 5 ? (
         <div className='text-white text-[35px]'>Your Score: {score}</div>
       ) : (
-        <div className='text-yellow-300 font-SchoolBell text-[35px]'>Game Over! Final Score: {score}</div>
+        <div className='text-yellow-300 font-SchoolBell text-[35px]'>
+            <h3>Game Over! Final Score: {score}</h3>
+            <button onClick={updateScore}>Go Home</button>
+        </div>
       )
     ) : (
       <div className='mb-10'>
