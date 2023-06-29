@@ -12,7 +12,7 @@ const questions = [
             ],
                   },
         {
-            questionText: 'What is the name of Morty\'s crush from "Rick Potion #9"?',
+            questionText: 'What is the name of Morty\'s crush?',
             answerOptions: [
                 { answerText: 'Jessica', isCorrect: true },
                 { answerText: 'Beth', isCorrect: false },
@@ -24,9 +24,9 @@ const questions = [
             questionText: 'What is the name of Rick\'s spaceship?',
             answerOptions: [
                 { answerText: 'Morty Jr.', isCorrect: false },
-                { answerText: 'Space Cruiser', isCorrect: false },
+                { answerText: 'Space Cruiser', isCorrect: true },
                 { answerText: 'Portal Gun', isCorrect: false },
-                { answerText: 'The Ship', isCorrect: true },
+                { answerText: 'The Ship', isCorrect: false },
             ],
                   },
         {
@@ -39,7 +39,7 @@ const questions = [
             ],
                   },
         {
-            questionText: 'What is the name of Rick\'s ex-girlfriend?',
+            questionText: 'What is the name of collective being Rick used to date?',
             answerOptions: [
                 { answerText: 'Unity', isCorrect: true },
                 { answerText: 'Tammy', isCorrect: false },
@@ -66,7 +66,7 @@ const questions = [
             ],
                   },
         {
-            questionText: 'What is the name of the arcade created by Rick?',
+            questionText: 'What is the name of the theme park created by Rick?',
             answerOptions: [
                 { answerText: 'Blips and Chitz', isCorrect: false },
                 { answerText: 'Royland', isCorrect: false },
@@ -107,7 +107,7 @@ const questions = [
                 { answerText: 'Birdperson', isCorrect: false },
                 { answerText: 'Tammy', isCorrect: false },
                 { answerText: 'Evil Rick', isCorrect: false },
-                { answerText: 'The Galactic Federation', isCorrect: true },
+                { answerText: 'Bureaucracy', isCorrect: true },
             ],
                   },
         {
@@ -200,16 +200,6 @@ const questions = [
           
           },
           {
-            questionText: 'What is the name of Rick\'s ex-partner in crime?',
-            answerOptions: [
-              { answerText: 'Birdperson', isCorrect: true },
-              { answerText: 'Squanchy', isCorrect: false },
-              { answerText: 'Phoenixperson', isCorrect: false },
-              { answerText: 'Revolio Clockberg Jr.', isCorrect: false },
-            ],
-          
-          },
-          {
             questionText: 'What is the name of the planet ruled by giant telepathic spiders?',
             answerOptions: [
               { answerText: 'Gazorpazorp', isCorrect: false },
@@ -226,16 +216,6 @@ const questions = [
               { answerText: 'Snuffles', isCorrect: false },
               { answerText: 'Tammy', isCorrect: false },
               { answerText: 'Noob-Noob', isCorrect: false },
-            ],
-          
-          },
-          {
-            questionText: 'What is the name of Morty\'s math teacher in the "Vindicators 3: The Return of Worldender" episode?',
-            answerOptions: [
-              { answerText: 'Mr. Goldenfold', isCorrect: false },
-              { answerText: 'Mr. Meeseeks', isCorrect: false },
-              { answerText: 'Principal Vagina', isCorrect: false },
-              { answerText: 'Logic', isCorrect: true },
             ],
           
           },
@@ -270,6 +250,90 @@ const questions = [
             ],
           
           },
-    
+          {
+            questionText: 'What is the name of the virtual reality game that Rick, Morty, and Summer play in the episode "Total Rickall"?',
+            answerOptions: [
+              { answerText: 'Blitz and Chitz', isCorrect: false },
+              { answerText: 'Roy: A Life Well Lived', isCorrect: true },
+              { answerText: 'Froopyland', isCorrect: false },
+              { answerText: 'Whirly Dirly', isCorrect: false }
+            ]
+          },
+          {
+            questionText: 'What is the name of the drug that Morty acquires from Rick, which allows him to perceive time slowly in the episode "A Rickle in Time"?',
+            answerOptions: [
+              { answerText: 'Cronenberg Serum', isCorrect: false },
+              { answerText: 'Gwendolyn', isCorrect: false },
+              { answerText: 'Gazorpazorpian Crystal', isCorrect: false },
+              { answerText: 'Time Crystal', isCorrect: true }
+            ]
+          },
+          {
+            questionText: 'In the episode "Meeseeks and Destroy," what task does Jerry ask the Meeseeks to help him with?',
+            answerOptions: [
+              { answerText: 'Improve his golf game', isCorrect: true },
+              { answerText: 'Find true love', isCorrect: false },
+              { answerText: 'Become a better cook', isCorrect: false },
+              { answerText: 'Win the lottery', isCorrect: false }
+            ]
+          },
+          {
+            questionText: 'What is the name of the battery that powers Rick\'s spaceship?',
+            answerOptions: [
+              { answerText: 'Fleeb', isCorrect: false },
+              { answerText: 'Plumbus', isCorrect: false },
+              { answerText: 'Portal Fluid', isCorrect: false },
+              { answerText: 'Microverse Battery', isCorrect: true }
+            ]
+          },
+          {
+            questionText: 'In the episode "Pickle Rick", what was Rick trying to avoid?',
+            answerOptions: [
+                {answerText: 'Therapy with his family', isCorrect: true},
+                {answerText: 'Bad credit', isCorrect:false},
+                {answerText: 'His own fading reality', isCorrect: false},
+                {answerText: 'Catching space aids', isCorrect: false}
+            ]
+          },
+          {
+            questionText: 'What is the name of Morty\'s sentient, anthropomorphic arm that he grows in the episode "Rickmancing the Stone"?',
+            answerOptions: [
+              { answerText: 'Armothy', isCorrect: true },
+              { answerText: 'Glootie', isCorrect: false },
+              { answerText: 'Snuffles', isCorrect: false },
+              { answerText: 'Crocubot', isCorrect: false }
+            ]
+          },
+          {
+            questionText: 'What is the name of the intergalactic arcade that Rick, Morty, and their family members frequently visit?',
+            answerOptions: [
+              { answerText: 'Blitz and Chitz', isCorrect: true },
+              { answerText: 'Froopyland', isCorrect: false },
+              { answerText: 'Roy: A Life Well Lived', isCorrect: false },
+              { answerText: 'The Matrix', isCorrect: false }
+            ]
+          },
+          {
+            questionText: 'In the infamous arcade "Blitz and Chitz", what is the virtual reality game where Rick and Morty play as a person living out their life?',
+            answerOptions: [
+                {answerText: 'Chitty Chitty Bang Bang', isCorrect: false },
+                {answerText: 'Return of Eyehole Man', isCorrect: false },
+                {answerText: 'Count Chocula: The Game', isCorrect: false },
+                {answerText: 'Roy: A Life Well Lived', isCorrect: true }
+            ]
+          },
+
+
     ];
   export default questions;
+
+// Just navigate into the components folder and run "node Question.js" to find out how many questions there are.
+const questionCount = () => {
+    let count = 0
+    for (let i = 0; i < questions.length; i++) {
+        count++
+    }
+    console.log(count, "Questions And Counting")
+}
+
+questionCount()
