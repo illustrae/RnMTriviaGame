@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from 'react'
-import { portalJump, planet } from "../assets";
+import { planet } from "../assets";
 
 
 
@@ -26,7 +26,6 @@ const QuestionList = () => {
     <>
 
       <div className='bg-bgStars bg-cover flex sm:flex-col  ss:flex-col lg:flex-row items-center md:justify-around  text-[#ffffff] overflow-hidden'>
-        <img src={portalJump} className='hidden lg:block ml-10  w-[550px] h-[730px] mb-5 md:flex-1 md:mt-0 md:mb-0 md:mr-20  '/>
         <div className='flex md:flex-col sm:overflow-y-hidden h-screen w-screen justify-center sm:items-center md:items-center'>
           <div className='w-full md:w-[750px] h-[400px] rounded-3xl bg-tvStatic bg-cover mt-50 items-center'>
             <h2 className='text-3xl text-center p-3 bg-[#fff719] text-[#0B0C10] rounded-t-3xl font-SchoolBell font-bold'>Who the heck is this squanchy little someone? </h2>

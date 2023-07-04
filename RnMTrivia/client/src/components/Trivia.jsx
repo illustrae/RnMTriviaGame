@@ -50,10 +50,10 @@ const Trivia = ({user, setUser , userData}) => {
         .then(res => {
             console.log("HERE: ", res.data)
             setUser(res.data.user)
-            navigate('/game')
+            navigate('/score')
         })
         .catch(err => console.log(err)):
-        navigate('/game')
+        navigate('/score')
     }
     
 
@@ -67,7 +67,7 @@ const Trivia = ({user, setUser , userData}) => {
       ) : (
         <div className='text-yellow-300 font-SchoolBell text-[35px]'>
             <h3>Game Over! Final Score: {score}</h3>
-            <button onClick={updateScore}>Go Home</button>
+            <button onClick={updateScore}>Submit Score</button>
         </div>
       )
     ) : (
